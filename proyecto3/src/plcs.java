@@ -89,12 +89,17 @@ class  plcs implements Runnable{
       String tupla= "" ;
       loop++;
       fechaCadena1 ="'"+ Integer.toString(calendario.get(Calendar.YEAR)) + "-" + Integer.toString(calendario.get(Calendar.MONTH) + 1) + "-" + Integer.toString(calendario.get(Calendar.DATE)) + " " + Integer.toString(calendario.get(Calendar.HOUR_OF_DAY)) + ":" + Integer.toString(calendario.get(Calendar.MINUTE)) + ":" + Integer.toString(calendario.get(Calendar.SECOND))+"'";
-       if( loop%25 == 0 )
-          tupla = "2"+ "," + "'2441480773'"+ "," +1 +","+ fechaCadena1 + ","+ 2;
+      System.out.println(loop);
+      if( loop%21 == 0 )
+       {
+           tupla = "2"+ "," + "'2441480773'"+ ","+0+","+ fechaCadena1 + ","+ 2;
+       }
         else
-          tupla = "2"+ "," + "'2441480773'"+ "," +1 +","+ fechaCadena1 + ","+ 2;
-        System.out.println("Calidad: " + tupla + "\n");
-        
+       {
+          tupla = "2"+ "," + "'2441480773'"+ "," +1+","+ fechaCadena1 + ","+ 2;
+          loop ++;
+           System.out.println("Calidad: " + tupla + "\n");
+       }
         //System.out.println(tupla);
         return tupla;
     }
